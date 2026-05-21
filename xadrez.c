@@ -4,16 +4,16 @@ int main() {
 
     // ====================================================
     // DESAFIO DE XADREZ - MATECHECK
+    // NÍVEL NOVATO + NÍVEL AVENTUREIRO
     // ====================================================
 
-    // Constantes com a quantidade de movimentos
-    // de cada peça no tabuleiro
+    // Quantidade de movimentos das peças
     const int MOVIMENTO_BISPO = 5;
     const int MOVIMENTO_TORRE = 5;
     const int MOVIMENTO_RAINHA = 8;
 
-    // Variável de controle dos loops
-    int i;
+    // Variáveis de controle
+    int i, j;
 
     printf("===== DESAFIO DE XADREZ - MATECHECK =====\n\n");
 
@@ -23,8 +23,8 @@ int main() {
     // O Bispo se move na diagonal superior direita.
     // Como o sistema possui apenas:
     // Cima, Baixo, Esquerda e Direita,
-    // utilizamos a combinação:
-    // "Cima" + "Direita"
+    // utilizamos:
+    // Cima + Direita
 
     printf("Movimento do Bispo:\n");
 
@@ -45,7 +45,7 @@ int main() {
 
     printf("Movimento da Torre:\n");
 
-    // Reinicia a variável de controle
+    // Reinicia variável de controle
     i = 1;
 
     // Estrutura WHILE
@@ -65,7 +65,7 @@ int main() {
 
     printf("Movimento da Rainha:\n");
 
-    // Reinicia a variável de controle
+    // Reinicia variável de controle
     i = 1;
 
     // Estrutura DO WHILE
@@ -76,6 +76,43 @@ int main() {
         i++;
 
     } while(i <= MOVIMENTO_RAINHA);
+
+    printf("\n");
+
+    // ====================================================
+    // MOVIMENTO DO CAVALO
+    // ====================================================
+    // O Cavalo se move em "L":
+    // 2 casas para Baixo
+    // 1 casa para Esquerda
+    //
+    // Obrigatório uso de loops aninhados
+
+    printf("Movimento do Cavalo:\n");
+
+    // LOOP EXTERNO -> FOR
+    // Responsável pelas 2 casas para BAIXO
+
+    for(i = 1; i <= 2; i++) {
+
+        printf("Baixo\n");
+
+        // LOOP INTERNO -> WHILE
+        // Executa 1 movimento para ESQUERDA
+        // apenas após finalizar os 2 movimentos para baixo
+
+        if(i == 2) {
+
+            j = 1;
+
+            while(j <= 1) {
+
+                printf("Esquerda\n");
+
+                j++;
+            }
+        }
+    }
 
     printf("\n===== FIM DO PROGRAMA =====\n");
 
