@@ -1,32 +1,83 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    // ====================================================
+    // DESAFIO DE XADREZ - MATECHECK
+    // ====================================================
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    // Constantes com a quantidade de movimentos
+    // de cada peça no tabuleiro
+    const int MOVIMENTO_BISPO = 5;
+    const int MOVIMENTO_TORRE = 5;
+    const int MOVIMENTO_RAINHA = 8;
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    // Variável de controle dos loops
+    int i;
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    printf("===== DESAFIO DE XADREZ - MATECHECK =====\n\n");
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    // ====================================================
+    // MOVIMENTO DO BISPO
+    // ====================================================
+    // O Bispo se move na diagonal superior direita.
+    // Como o sistema possui apenas:
+    // Cima, Baixo, Esquerda e Direita,
+    // utilizamos a combinação:
+    // "Cima" + "Direita"
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    printf("Movimento do Bispo:\n");
+
+    // Estrutura FOR
+    for(i = 1; i <= MOVIMENTO_BISPO; i++) {
+
+        printf("Cima\n");
+        printf("Direita\n");
+
+    }
+
+    printf("\n");
+
+    // ====================================================
+    // MOVIMENTO DA TORRE
+    // ====================================================
+    // A Torre se move 5 casas para a direita
+
+    printf("Movimento da Torre:\n");
+
+    // Reinicia a variável de controle
+    i = 1;
+
+    // Estrutura WHILE
+    while(i <= MOVIMENTO_TORRE) {
+
+        printf("Direita\n");
+
+        i++;
+    }
+
+    printf("\n");
+
+    // ====================================================
+    // MOVIMENTO DA RAINHA
+    // ====================================================
+    // A Rainha se move 8 casas para a esquerda
+
+    printf("Movimento da Rainha:\n");
+
+    // Reinicia a variável de controle
+    i = 1;
+
+    // Estrutura DO WHILE
+    do {
+
+        printf("Esquerda\n");
+
+        i++;
+
+    } while(i <= MOVIMENTO_RAINHA);
+
+    printf("\n===== FIM DO PROGRAMA =====\n");
 
     return 0;
 }
