@@ -1,118 +1,155 @@
 #include <stdio.h>
 
+// ====================================================
+// FUNÇÃO RECURSIVA DA TORRE
+// ====================================================
+// A Torre se move 5 casas para a direita.
+// A função chama ela mesma até completar todos os movimentos.
+
+void moverTorre(int casas) {
+    if(casas > 0) {
+        printf("Direita\n");
+        moverTorre(casas - 1);
+    }
+}
+
+// ====================================================
+// FUNÇÃO RECURSIVA DA RAINHA
+// ====================================================
+// A Rainha se move 8 casas para a esquerda.
+
+void moverRainha(int casas) {
+    if(casas > 0) {
+        printf("Esquerda\n");
+        moverRainha(casas - 1);
+    }
+}
+
+// ====================================================
+// FUNÇÃO RECURSIVA DO BISPO
+// ====================================================
+// O Bispo se move na diagonal superior direita.
+// Para representar a diagonal, usamos:
+// Cima + Direita
+
+void moverBispoRecursivo(int casas) {
+    if(casas > 0) {
+        printf("Cima\n");
+        printf("Direita\n");
+        moverBispoRecursivo(casas - 1);
+    }
+}
+
+// ====================================================
+// FUNÇÃO DO BISPO COM LOOPS ANINHADOS
+// ====================================================
+// O loop externo representa o movimento vertical.
+// O loop interno representa o movimento horizontal.
+
+void moverBispoLoopsAninhados(int casas) {
+    int vertical, horizontal;
+
+    for(vertical = 1; vertical <= casas; vertical++) {
+
+        printf("Cima\n");
+
+        for(horizontal = 1; horizontal <= 1; horizontal++) {
+            printf("Direita\n");
+        }
+    }
+}
+
+// ====================================================
+// FUNÇÃO DO CAVALO COM LOOPS COMPLEXOS
+// ====================================================
+// O Cavalo se move em L:
+// 2 casas para cima
+// 1 casa para direita
+//
+// Foram usados loops aninhados, múltiplas variáveis,
+// continue e break para controlar o fluxo.
+
+void moverCavalo(int movimentosCima, int movimentosDireita) {
+    int i, j;
+
+    for(i = 1; i <= movimentosCima; i++) {
+
+        printf("Cima\n");
+
+        for(j = 1; j <= movimentosDireita; j++) {
+
+            // Enquanto ainda não chegou no segundo movimento para cima,
+            // o programa pula o movimento para direita.
+            if(i < movimentosCima) {
+                continue;
+            }
+
+            printf("Direita\n");
+
+            // Após imprimir a direita uma vez,
+            // encerramos o loop interno.
+            break;
+        }
+    }
+}
+
 int main() {
 
     // ====================================================
     // DESAFIO DE XADREZ - MATECHECK
-    // NÍVEL NOVATO + NÍVEL AVENTUREIRO
+    // NÍVEL MESTRE
     // ====================================================
 
-    // Quantidade de movimentos das peças
     const int MOVIMENTO_BISPO = 5;
     const int MOVIMENTO_TORRE = 5;
     const int MOVIMENTO_RAINHA = 8;
+    const int CAVALO_CIMA = 2;
+    const int CAVALO_DIREITA = 1;
 
-    // Variáveis de controle
-    int i, j;
-
-    printf("===== DESAFIO DE XADREZ - MATECHECK =====\n\n");
-
-    // ====================================================
-    // MOVIMENTO DO BISPO
-    // ====================================================
-    // O Bispo se move na diagonal superior direita.
-    // Como o sistema possui apenas:
-    // Cima, Baixo, Esquerda e Direita,
-    // utilizamos:
-    // Cima + Direita
-
-    printf("Movimento do Bispo:\n");
-
-    // Estrutura FOR
-    for(i = 1; i <= MOVIMENTO_BISPO; i++) {
-
-        printf("Cima\n");
-        printf("Direita\n");
-
-    }
-
-    printf("\n");
+    printf("===== DESAFIO DE XADREZ - NIVEL MESTRE =====\n\n");
 
     // ====================================================
     // MOVIMENTO DA TORRE
     // ====================================================
-    // A Torre se move 5 casas para a direita
 
     printf("Movimento da Torre:\n");
+    moverTorre(MOVIMENTO_TORRE);
 
-    // Reinicia variável de controle
-    i = 1;
+    printf("\n");
 
-    // Estrutura WHILE
-    while(i <= MOVIMENTO_TORRE) {
+    // ====================================================
+    // MOVIMENTO DO BISPO COM RECURSIVIDADE
+    // ====================================================
 
-        printf("Direita\n");
+    printf("Movimento do Bispo com Recursividade:\n");
+    moverBispoRecursivo(MOVIMENTO_BISPO);
 
-        i++;
-    }
+    printf("\n");
+
+    // ====================================================
+    // MOVIMENTO DO BISPO COM LOOPS ANINHADOS
+    // ====================================================
+
+    printf("Movimento do Bispo com Loops Aninhados:\n");
+    moverBispoLoopsAninhados(MOVIMENTO_BISPO);
 
     printf("\n");
 
     // ====================================================
     // MOVIMENTO DA RAINHA
     // ====================================================
-    // A Rainha se move 8 casas para a esquerda
 
     printf("Movimento da Rainha:\n");
-
-    // Reinicia variável de controle
-    i = 1;
-
-    // Estrutura DO WHILE
-    do {
-
-        printf("Esquerda\n");
-
-        i++;
-
-    } while(i <= MOVIMENTO_RAINHA);
+    moverRainha(MOVIMENTO_RAINHA);
 
     printf("\n");
 
     // ====================================================
     // MOVIMENTO DO CAVALO
     // ====================================================
-    // O Cavalo se move em "L":
-    // 2 casas para Baixo
-    // 1 casa para Esquerda
-    //
-    // Obrigatório uso de loops aninhados
 
     printf("Movimento do Cavalo:\n");
-
-    // LOOP EXTERNO -> FOR
-    // Responsável pelas 2 casas para BAIXO
-
-    for(i = 1; i <= 2; i++) {
-
-        printf("Baixo\n");
-
-        // LOOP INTERNO -> WHILE
-        // Executa 1 movimento para ESQUERDA
-        // apenas após finalizar os 2 movimentos para baixo
-
-        if(i == 2) {
-
-            j = 1;
-
-            while(j <= 1) {
-
-                printf("Esquerda\n");
-
-                j++;
-            }
-        }
-    }
+    moverCavalo(CAVALO_CIMA, CAVALO_DIREITA);
 
     printf("\n===== FIM DO PROGRAMA =====\n");
 
